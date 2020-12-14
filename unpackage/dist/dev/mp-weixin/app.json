@@ -41,5 +41,6 @@
     "enable": true
   },
   "permission": {},
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap8.json"
 }
