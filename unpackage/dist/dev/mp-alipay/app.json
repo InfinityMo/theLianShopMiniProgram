@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/car/car",
+    "pages/user/user"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "uni-app",
+    "titleBarColor": "#007AFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "textColor": "#C0C4CC",
+    "selectedColor": "#007AFF",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页",
+        "icon": "static/system/home.png",
+        "activeIcon": "static/system/home-active.png"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "name": "购物车",
+        "icon": "static/system/car.png",
+        "activeIcon": "static/system/car-active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "name": "我的",
+        "icon": "static/system/my.png",
+        "activeIcon": "static/system/my-active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
