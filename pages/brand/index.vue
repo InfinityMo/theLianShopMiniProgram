@@ -1,44 +1,6 @@
 <template>
   <view class="container">
-    <swiper class="swiper"
-            :autoplay="swiperOption.autoplay"
-            :interval="swiperOption.interval"
-            :duration="swiperOption.duration">
-      <swiper-item v-for="(item,index) in swiperData"
-                   :key="index">
-        <view class="swiper-item uni-bg-red">
-          <image :src="item.img"></image>
-        </view>
-      </swiper-item>
-
-    </swiper>
-    <!-- 品牌区域 -->
-    <ul class="brand-wrap">
-      <li v-for="(item,index) in brand"
-          :key="index"
-          @click="toBrand">
-        <img :src="item.img">
-        <p>{{item.name}}</p>
-      </li>
-    </ul>
-    <view class="sell-tip">
-      <text class="title">本次售卖</text>
-      <label>本次共售卖12件商品，欲购从速</label>
-    </view>
-    <ul class="good-wrap">
-      <li v-for="(good,index) in goods"
-          :key="index">
-        <view class="img-wrap"><img :src="good.img"></view>
-        <view class="info">
-          <h5>{{good.title}}</h5>
-          <p><label>停售时间：</label><text>{{good.stopTime}}</text></p>
-          <view class="price-limit">
-            <text class="price">￥{{good.price}}</text>
-            <text class="limit">限购{{good.limit}}件</text>
-          </view>
-        </view>
-      </li>
-    </ul>
+    pin
   </view>
 </template>
 <script>
@@ -93,12 +55,6 @@ export default {
     this.testApi()
   },
   methods: {
-    toBrand () {
-      debugger
-      uni.navigateTo({
-        url: '/pages/brand/index',
-      })
-    },
     testApi () {
       this.$request.post('/shopSelect', {
         pageNum: 1,

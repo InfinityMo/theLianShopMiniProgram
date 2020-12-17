@@ -21,6 +21,11 @@
 			"style": {
 				"navigationBarTitleText": "个人中心"
 			}
+		}, {
+			"path": "pages/brand/index",
+			"style": {
+				"navigationBarTitleText": "品牌"
+			}
 		}
 	],
 	"globalStyle": {

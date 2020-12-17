@@ -24,15 +24,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.container.data-v-57280228 {
+.container.data-v-8289f93e {
   padding-bottom: 10px;
   background-color: #e5e5e5;
 }
-.swiper image.data-v-57280228 {
+.swiper image.data-v-8289f93e {
   width: 100%;
   height: 164px;
 }
-.brand-wrap.data-v-57280228 {
+.brand-wrap.data-v-8289f93e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -43,23 +43,23 @@
   border-radius: 10px;
   background-color: #fff;
 }
-.brand-wrap ._li.data-v-57280228 {
+.brand-wrap ._li.data-v-8289f93e {
   width: 20%;
   height: 55px;
   padding: 5px;
   line-height: 1;
   text-align: center;
 }
-.brand-wrap ._li ._img.data-v-57280228 {
+.brand-wrap ._li ._img.data-v-8289f93e {
   width: 44px;
   height: 35px;
   margin-bottom: 5px;
 }
-.brand-wrap ._li ._p.data-v-57280228 {
+.brand-wrap ._li ._p.data-v-8289f93e {
   font-size: 13px;
   color: #333333;
 }
-.sell-tip.data-v-57280228 {
+.sell-tip.data-v-8289f93e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -68,18 +68,18 @@
           align-items: center;
   margin: 0 10px 10px 10px;
 }
-.sell-tip .title.data-v-57280228 {
+.sell-tip .title.data-v-8289f93e {
   font-size: 15px;
   line-height: 22px;
   color: #333;
 }
-.sell-tip label.data-v-57280228 {
+.sell-tip label.data-v-8289f93e {
   margin-left: 6px;
   font-size: 12px;
   line-height: 18px;
   color: #777;
 }
-.good-wrap ._li.data-v-57280228 {
+.good-wrap ._li.data-v-8289f93e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -88,29 +88,29 @@
   border-radius: 5px;
   background-color: #fff;
 }
-.good-wrap ._li .img-wrap.data-v-57280228 {
+.good-wrap ._li .img-wrap.data-v-8289f93e {
   width: 147px;
   height: 120px;
   margin-right: 17px;
 }
-.good-wrap ._li .img-wrap ._img.data-v-57280228 {
+.good-wrap ._li .img-wrap ._img.data-v-8289f93e {
   width: 100%;
   height: 100%;
 }
-.good-wrap ._li .info.data-v-57280228 {
+.good-wrap ._li .info.data-v-8289f93e {
   width: calc(100% - 164px);
 }
-.good-wrap ._li ._h5.data-v-57280228 {
+.good-wrap ._li ._h5.data-v-8289f93e {
   margin-bottom: 10px;
   font-size: 13px;
   line-height: 13px;
   color: #333333;
 }
-.good-wrap ._li ._p.data-v-57280228 {
+.good-wrap ._li ._p.data-v-8289f93e {
   font-size: 11px;
   color: #777;
 }
-.good-wrap ._li .price-limit.data-v-57280228 {
+.good-wrap ._li .price-limit.data-v-8289f93e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -122,12 +122,12 @@
           align-items: center;
   margin-top: 47px;
 }
-.good-wrap ._li .price-limit .price.data-v-57280228 {
+.good-wrap ._li .price-limit .price.data-v-8289f93e {
   font-weight: 500;
   font-size: 13px;
   color: #f04f2d;
 }
-.good-wrap ._li .price-limit .limit.data-v-57280228 {
+.good-wrap ._li .price-limit .limit.data-v-8289f93e {
   font-size: 11px;
   color: #777;
 }

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/car/car",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/brand/index"
   ],
   "subPackages": [],
   "window": {
@@ -41,6 +42,5 @@
     "enable": true
   },
   "permission": {},
-  "usingComponents": {},
-  "sitemapLocation": "sitemap8.json"
+  "usingComponents": {}
 }
