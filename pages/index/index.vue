@@ -16,7 +16,7 @@
     <ul class="brand-wrap">
       <li v-for="(item,index) in brand"
           :key="index"
-          @click="toBrand">
+          @click="toBrand(item.name)">
         <img :src="item.img">
         <p>{{item.name}}</p>
       </li>
@@ -27,10 +27,11 @@
     </view>
     <ul class="good-wrap">
       <li v-for="(good,index) in goods"
-          :key="index">
+          :key="index"
+          @click="toGood(index)">
         <view class="img-wrap"><img :src="good.img"></view>
         <view class="info">
-          <h5>{{good.title}}</h5>
+          <h5 class="ell">{{good.title}}</h5>
           <p><label>停售时间：</label><text>{{good.stopTime}}</text></p>
           <view class="price-limit">
             <text class="price">￥{{good.price}}</text>
@@ -90,13 +91,17 @@ export default {
     }
   },
   onLoad () {
-    this.testApi()
+
   },
   methods: {
-    toBrand () {
-      debugger
+    toBrand (name) {
       uni.navigateTo({
-        url: '/pages/brand/index',
+        url: '/pages/brand/index?name=' + name,
+      })
+    },
+    toGood (id) {
+      uni.navigateTo({
+        url: '/pages/good/index',
       })
     },
     testApi () {

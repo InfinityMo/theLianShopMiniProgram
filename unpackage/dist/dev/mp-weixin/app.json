@@ -3,14 +3,15 @@
     "pages/index/index",
     "pages/car/car",
     "pages/user/user",
-    "pages/brand/index"
+    "pages/brand/index",
+    "pages/good/index"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#007AFF",
-    "backgroundColor": "#FFFFFF"
+    "backgroundColor": "#e5e5e5"
   },
   "tabBar": {
     "color": "#C0C4CC",

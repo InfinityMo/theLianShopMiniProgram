@@ -1,0 +1,119 @@
+<template>
+  <view class="good-wrap">
+    <view class="good-baseinfo">
+      <swiper class="swiper"
+              :autoplay="swiperOption.autoplay"
+              :interval="swiperOption.interval"
+              :duration="swiperOption.duration">
+        <swiper-item class="swiper-item-wrap"
+                     v-for="(item,index) in swiperData"
+                     :key="index">
+          <view class="swiper-item uni-bg-red">
+            <image :src="item.img"></image>
+          </view>
+        </swiper-item>
+      </swiper>
+      <h5 class="title">{{good.title}}</h5>
+      <view class="info">
+        <view class="price-limit">
+          <label><text>￥</text>{{good.price}}</label>
+          <text class="limit">限购{{good.limit}}件</text>
+        </view>
+        <view class="time">停售时间：{{good.stopTime}}</view>
+      </view>
+    </view>
+    <view class="info-detail">
+      <h4>参数详情</h4>
+      <ol>
+        <li><label>品牌：</label><text>{{infoDateil.brand}}</text></li>
+        <li><label>类型：</label><text>{{infoDateil.type}}</text></li>
+        <li><label>保质期：</label><text>{{infoDateil.guarantee}}</text></li>
+        <li><label>限购数量：</label><text>{{infoDateil.limit}}</text></li>
+        <li><label>商品描述：</label><text>{{infoDateil.remark}}</text></li>
+      </ol>
+    </view>
+    <view class="imgs-wrap">
+      <view v-for="(img,index) in imgsArr"
+            :key="index">
+        <image :src="img"></image>
+      </view>
+    </view>
+    <!-- buy -->
+    <view class="car-wrap">
+      <view class="flex-item-center">
+        <view class="home-car home"
+              @click="toHome">
+          <img src='../../static/img/system/home.png'>
+          <p>首页</p>
+        </view>
+        <view class="home-car"
+              @click="toCar">
+          <img src='../../static/img/system/car.png'>
+          <p>购物车</p>
+        </view>
+      </view>
+      <view class="flex-item-center">
+        <view class="btn buy-car">加入购物车</view>
+        <view class="btn buy">立即购买</view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      swiperOption: {
+        autoplay: true,
+        interval: 2000,
+        duration: 1000
+      },
+      swiperData: [{
+        img: 'http://img.alicdn.com/bao/uploaded/i2/845001562/O1CN01i5TdJF1NPRIaSVkBF_!!845001562.jpg'
+      }, {
+        img: '//img.alicdn.com/bao/uploaded/i4/845001562/O1CN01oIk1g91NPRIK8xxCE_!!845001562.jpg'
+      }],
+      good: {
+        img: 'http://img.alicdn.com/bao/uploaded/i2/845001562/O1CN01i5TdJF1NPRIaSVkBF_!!845001562.jpg',
+        title: '悦诗风吟洁面护肤面膜套装双重功效洗护一体共5瓶＋5片，送小样',
+        stopTime: '2020-01-03 18:00',
+        price: '276-423',
+        limit: 5
+      },
+      infoDateil: {
+        brand: '悦诗风吟',
+        type: '洗面奶',
+        guarantee: '三年',
+        limit: 5,
+        remark: '非常划算，欲购从速'
+      },
+      imgsArr: [
+        'https://img.alicdn.com/imgextra/https://img.alicdn.com/imgextra/i1/845001562/O1CN01RXfX3J1NPRIJBacXP_!!845001562.jpg_430x430q90.jpg',
+        'https://img.alicdn.com/imgextra/https://img.alicdn.com/imgextra/i1/845001562/O1CN01YySLPM1NPRIN7qD8j_!!845001562.jpg_430x430q90.jpg',
+        'https://img.alicdn.com/imgextra/https://img.alicdn.com/imgextra/i2/845001562/O1CN01ffxaXr1NPRIIAjC2o_!!845001562.jpg_430x430q90.jpg',
+        'https://img.alicdn.com/imgextra/https://img.alicdn.com/imgextra/i4/845001562/O1CN012yfRBo1NPRINzjlM6_!!845001562.jpg_430x430q90.jpg'
+      ]
+    }
+  },
+  onLoad () {
+
+  },
+  methods: {
+    toHome () {
+      uni.switchTab({
+        url: '/pages/index/index',
+      })
+    },
+    toCar () {
+      uni.switchTab({
+        url: '/pages/car/car',
+      })
+    }
+  }
+}
+</script>
+
+
+<style lang="scss" scoped>
+@import "./index";
+</style>

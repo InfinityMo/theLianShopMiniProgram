@@ -1,38 +1,24 @@
 <template>
-  <view class="container">
-    pin
+  <view class="brand-wrap">
+    <ul>
+      <li v-for="(good,index) in goods"
+          :key="index"
+          @click="toGood(index)">
+        <img :src="good.img">
+        <h5 class="ell">{{good.title}}</h5>
+        <p><text>停售时间：</text><text>{{good.stopTime}}</text></p>
+        <view class="price-limit">
+          <text class="price">￥{{good.price}}</text>
+          <text class="limit">限购{{good.limit}}件</text>
+        </view>
+      </li>
+    </ul>
   </view>
 </template>
 <script>
 export default {
   data () {
     return {
-      swiperData: [{
-        img: require('@/static/img/base/banner1.png')
-      }, {
-        img: require('@/static/img/base/banner2.png')
-      }],
-      brand: [{
-        name: '悦诗风吟',
-        img: require('@/static/img/brands/ysfy.png')
-      }, {
-        name: '花王',
-        img: require('@/static/img/brands/hw.png')
-      }, {
-        name: '玫珂菲',
-        img: require('@/static/img/brands/mkf.png')
-      }, {
-        name: '丝塔芙',
-        img: require('@/static/img/brands/stf.png')
-      }, {
-        name: '摩洛哥油',
-        img: require('@/static/img/brands/mlgy.png')
-      }],
-      swiperOption: {
-        autoplay: true,
-        interval: 2000,
-        duration: 500
-      },
       goods: [
         {
           img: 'http://img.alicdn.com/bao/uploaded/i2/845001562/O1CN01i5TdJF1NPRIaSVkBF_!!845001562.jpg',
@@ -47,27 +33,47 @@ export default {
           stopTime: '2020-01-07 18:00',
           price: '299',
           limit: 5
+        },
+        {
+          img: '//img.alicdn.com/bao/uploaded/i1/845001562/O1CN01LMb0k21NPRIhD9tnm_!!0-item_pic.jpg_180x180.jpg',
+          title: 'innisfree/悦诗风吟新绿茶精萃柔肤水补水保湿控油 ',
+          stopTime: '2020-01-07 18:00',
+          price: '299',
+          limit: 5
+        },
+        {
+          img: '//img.alicdn.com/bao/uploaded/i1/845001562/O1CN01lAklSb1NPRIZK170y_!!0-item_pic.jpg_180x180.jpg',
+          title: 'innisfree/悦诗风吟火山岩泥调理爽肤水控油清洁毛孔',
+          stopTime: '2020-01-07 18:00',
+          price: '299',
+          limit: 5
+        },
+        {
+          img: '//img.alicdn.com/bao/uploaded/i3/845001562/O1CN01VOscKe1NPRId1CW7Y_!!0-item_pic.jpg_180x180.jpg',
+          title: 'innisfree/悦诗风吟绿茶泡沫洁面乳女温和控油洗面奶',
+          stopTime: '2020-01-07 18:00',
+          price: '299',
+          limit: 5
+        },
+        {
+          img: '//img.alicdn.com/bao/uploaded/i1/845001562/O1CN01tnrrnT1NPRId18gkv_!!0-item_pic.jpg_180x180.jpg',
+          title: 'nnisfree/悦诗风吟九重臻致修护调理水紧致提拉补水',
+          stopTime: '2020-01-07 18:00',
+          price: '299',
+          limit: 5
         }
       ]
     }
   },
-  onLoad () {
-    this.testApi()
+  onLoad (options) {
+    uni.setNavigationBarTitle({
+      title: options.name
+    })
   },
   methods: {
-    testApi () {
-      this.$request.post('/shopSelect', {
-        pageNum: 1,
-        pageSize: 5,
-        RowGuid: ''
-      }).then(res => {
-        uni.showToast({
-          title: res
-        })
-      }).catch(err => {
-        uni.showToast({
-          title: err
-        })
+    toGood (id) {
+      uni.navigateTo({
+        url: '/pages/good/index?good=' + id,
       })
     }
   }
@@ -79,102 +85,57 @@ export default {
 // @import '@/common/style/brands.scss'
 // @import "~@/common/styles/brands.css"
 // @import  './index.scss'
-.container {
-  padding-bottom: 10px;
-  background-color: #e5e5e5;
-}
-.swiper {
-  // width: 100%;
-  // height: 164px;
-
-  image {
-    width: 100%;
-    height: 164px;
-  }
+.ell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .brand-wrap {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: #fff;
-  li {
-    width: 20%;
-    height: 55px;
-    padding: 5px;
-    line-height: 1;
-    text-align: center;
-    img {
-      width: 44px;
-      height: 35px;
-      margin-bottom: 5px;
-    }
-    p {
-      font-size: 13px;
-      color: #333333;
-    }
-  }
-}
-.sell-tip {
-  display: flex;
-  align-items: center;
-  margin: 0 10px 10px 10px;
-  .title {
-    font-size: 15px;
-    line-height: 22px;
-    color: #333;
-  }
-  label {
-    margin-left: 6px;
-    font-size: 12px;
-    line-height: 18px;
-    color: #777;
-  }
-}
-.good-wrap {
-  li {
+  padding: 10px 12px 3px 12px;
+  background-color: #e5e5e5;
+  ul {
     display: flex;
-
-    padding: 20px 12px;
-    margin: 0 12px 10px 12px;
-    border-radius: 5px;
-    background-color: #fff;
-    .img-wrap {
-      width: 147px;
-      height: 120px;
-      margin-right: 17px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li {
+      // width: calc(50% - 7px);
+      width: 49%;
+      padding: 30px 12px 10px 12px;
+      margin-bottom: 7px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-sizing: border-box;
       img {
-        width: 100%;
-        height: 100%;
+        width: 147px;
+        height: 120px;
+        margin-bottom: 25px;
       }
-    }
-
-    .info {
-      width: calc(100% - 164px);
-    }
-    h5 {
-      margin-bottom: 10px;
-      font-size: 13px;
-      line-height: 13px;
-      color: #333333;
-    }
-    p {
-      font-size: 11px;
-      color: #777;
-    }
-    .price-limit {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 47px;
-      .price {
-        font-weight: 500;
+      h5 {
+        margin-bottom: 6px;
+        color: #333;
+        line-height: 13px;
         font-size: 13px;
-        color: #f04f2d;
       }
-      .limit {
+      p {
+        margin-bottom: 12px;
         font-size: 11px;
+        line-height: 11px;
         color: #777;
+      }
+      .price-limit {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .price {
+          font-weight: 500;
+          font-size: 13px;
+          color: #f04f2d;
+        }
+        .limit {
+          font-size: 11px;
+          color: #777;
+        }
       }
     }
   }

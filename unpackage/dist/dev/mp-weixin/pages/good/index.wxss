@@ -1,0 +1,186 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.ell.data-v-0a82e639 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.good-wrap.data-v-0a82e639 {
+  background-color: #e5e5e5;
+}
+.good-wrap .swiper.data-v-0a82e639 {
+  height: 197px !important;
+}
+.good-wrap .swiper .swiper-item-wrap .swiper-item.data-v-0a82e639 {
+  text-align: center;
+}
+.good-wrap .swiper .swiper-item-wrap .swiper-item image.data-v-0a82e639 {
+  width: 243px;
+  height: 197px;
+}
+.good-wrap .good-baseinfo.data-v-0a82e639 {
+  padding: 30px 12px 0 12px;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+.good-wrap .good-baseinfo .title.data-v-0a82e639 {
+  margin: 45px 0 15px 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+.good-wrap .good-baseinfo .info.data-v-0a82e639 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding-bottom: 21px;
+}
+.good-wrap .good-baseinfo .info .price-limit label.data-v-0a82e639 {
+  font-size: 16px;
+  line-height: 26px;
+  color: #f04f2d;
+  font-weight: bold;
+}
+.good-wrap .good-baseinfo .info .price-limit label text.data-v-0a82e639 {
+  font-size: 13px;
+}
+.good-wrap .good-baseinfo .info .price-limit .limit.data-v-0a82e639 {
+  margin-left: 5px;
+  font-size: 11px;
+  line-height: 11px;
+  color: #777;
+}
+.good-wrap .good-baseinfo .info .time.data-v-0a82e639 {
+  font-size: 11px;
+  line-height: 11px;
+  color: #777;
+}
+.good-wrap .info-detail.data-v-0a82e639 {
+  padding: 12px 12px 8px 12px;
+  background-color: #fff;
+}
+.good-wrap .info-detail ._h4.data-v-0a82e639 {
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 15px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+.good-wrap .info-detail ._ol ._li.data-v-0a82e639 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 13px;
+  color: #333;
+}
+.good-wrap .imgs-wrap.data-v-0a82e639 {
+  padding: 0 12px 52px 0;
+  background-color: #fff;
+}
+.good-wrap .imgs-wrap view.data-v-0a82e639 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.good-wrap .imgs-wrap view.data-v-0a82e639:last-child {
+  margin-bottom: 0;
+}
+.good-wrap .imgs-wrap image.data-v-0a82e639 {
+  width: 243px;
+  height: 197px;
+}
+.good-wrap .car-wrap.data-v-0a82e639 {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding: 5px 12px 5px 20px;
+  background-color: #fff;
+  box-shadow: inset 0px 1px 0px #E6E6E6;
+  box-sizing: border-box;
+}
+.good-wrap .car-wrap .home.data-v-0a82e639 {
+  margin-right: 50px;
+}
+.good-wrap .car-wrap .home-car.data-v-0a82e639 {
+  text-align: center;
+}
+.good-wrap .car-wrap .home-car ._img.data-v-0a82e639 {
+  width: 24px;
+  height: 24px;
+}
+.good-wrap .car-wrap .home-car ._p.data-v-0a82e639 {
+  font-size: 10px;
+  color: #777;
+}
+.good-wrap .car-wrap .btn.data-v-0a82e639 {
+  width: 100px;
+  height: 40px;
+  font-size: 13px;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  border-radius: 24px;
+}
+.good-wrap .car-wrap .buy-car.data-v-0a82e639 {
+  background: -webkit-linear-gradient(left, #FFBA05 0%, #FDA702 100%);
+  background: linear-gradient(90deg, #FFBA05 0%, #FDA702 100%);
+}
+.good-wrap .car-wrap .buy.data-v-0a82e639 {
+  margin-left: 10px;
+  background: -webkit-linear-gradient(right, #D82810 0%, #F04F2D 100%);
+  background: linear-gradient(270deg, #D82810 0%, #F04F2D 100%);
+}
+.good-wrap .flex-item-center.data-v-0a82e639 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+

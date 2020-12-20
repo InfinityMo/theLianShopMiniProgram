@@ -1,0 +1,172 @@
+.ell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.good-wrap {
+  background-color: #e5e5e5;
+
+  // border-bottom: 5px solid #e5e5e5;
+  .swiper {
+    height: 197px !important;
+
+    .swiper-item-wrap {
+      .swiper-item {
+        text-align: center;
+
+        image {
+          width: 243px;
+          height: 197px;
+        }
+      }
+    }
+  }
+
+  .good-baseinfo {
+    padding: 30px 12px 0 12px;
+    margin-bottom: 5px;
+    background-color: #fff;
+
+    .title {
+      margin: 45px 0 15px 0;
+      font-size: 16px;
+      line-height: 24px;
+      color: #333;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 21px;
+
+      .price-limit {
+        label {
+          font-size: 16px;
+          line-height: 26px;
+          color: #f04f2d;
+          font-weight: bold;
+
+          text {
+            font-size: 13px;
+          }
+        }
+
+        .limit {
+          margin-left: 5px;
+          font-size: 11px;
+          line-height: 11px;
+          color: #777;
+        }
+      }
+
+      .time {
+        font-size: 11px;
+        line-height: 11px;
+        color: #777;
+      }
+    }
+  }
+
+  .info-detail {
+    padding: 12px 12px 8px 12px;
+    background-color: #fff;
+
+    h4 {
+      padding-bottom: 12px;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 15px;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+
+    ol {
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 13px;
+        line-height: 13px;
+        color: #333;
+      }
+    }
+  }
+
+  .imgs-wrap {
+    padding: 0 12px 52px 0;
+    background-color: #fff;
+
+    view {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    view:last-child {
+      margin-bottom: 0;
+    }
+
+    image {
+      width: 243px;
+      height: 197px;
+    }
+  }
+
+  .car-wrap {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 12px 5px 20px;
+    background-color: #fff;
+    box-shadow: inset 0px 1px 0px #E6E6E6;
+    box-sizing: border-box;
+
+    .home {
+      margin-right: 50px;
+    }
+
+    .home-car {
+      text-align: center;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      p {
+        font-size: 10px;
+        color: #777
+      }
+    }
+
+    .btn {
+      width: 100px;
+      height: 40px;
+      font-size: 13px;
+      text-align: center;
+      color: #fff;
+      line-height: 40px;
+      border-radius: 24px;
+    }
+
+    .buy-car {
+      background: linear-gradient(90deg, #FFBA05 0%, #FDA702 100%);
+    }
+
+    .buy {
+      margin-left: 10px;
+      background: linear-gradient(270deg, #D82810 0%, #F04F2D 100%);
+    }
+
+  }
+
+  .flex-item-center {
+    display: flex;
+    align-items: center;
+  }
+}

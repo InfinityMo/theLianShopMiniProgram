@@ -173,6 +173,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -222,13 +223,17 @@ var _default =
 
   },
   onLoad: function onLoad() {
-    this.testApi();
+
   },
   methods: {
-    toBrand: function toBrand() {
-      debugger;
+    toBrand: function toBrand(name) {
       uni.navigateTo({
-        url: '/pages/brand/index' });
+        url: '/pages/brand/index?name=' + name });
+
+    },
+    toGood: function toGood(id) {
+      uni.navigateTo({
+        url: '/pages/good/index' });
 
     },
     testApi: function testApi() {
