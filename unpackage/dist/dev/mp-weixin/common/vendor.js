@@ -904,7 +904,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7329,7 +7329,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7350,14 +7350,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7442,7 +7442,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8902,7 +8902,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "首页", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/car/car": { "navigationBarTitleText": "购物车", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/user/user": { "navigationBarTitleText": "个人中心", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/brand/index": { "navigationBarTitleText": "", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/good/index": { "navigationBarTitleText": "商品详情", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#007AFF", "backgroundColor": "#e5e5e5" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "首页" }, "pages/car/car": { "navigationBarTitleText": "购物车" }, "pages/user/user": { "navigationBarTitleText": "个人中心" }, "pages/brand/index": { "navigationBarTitleText": "" }, "pages/good/index": { "navigationBarTitleText": "商品详情" } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#007AFF", "backgroundColor": "#e5e5e5" } };exports.default = _default;
 
 /***/ }),
 /* 9 */,
@@ -13274,13 +13274,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAABvCAYAAABv
 /* 90 */,
 /* 91 */,
 /* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */
+/* 93 */
 /*!*********************************************************************!*\
   !*** G:/HBuilder/theLianShopMiniProgram/static/img/system/home.png ***!
   \*********************************************************************/
@@ -13290,7 +13284,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAABvCAYAAABv
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABICAYAAABP0VPJAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAPNSURBVHgB7ZxdUuJAEMcnqM/LEdgbiF9VPm08geYEiydQTiCcAPYEuieAG6z7ZJViyd6AG6zvCvjvqkCFrkxmCJMPSP+qqApmkkp+me6ejAmeKgFvb2+N2Wx2M5/PW/hax2eMT//k5OS3yhlPFczLy4tfq9XuIaMRs3r48fHRPj8/n6icKFQIZHQ8z7szNJtAykVeUgoRghCpT6fTeyxe2W6DHtQ+PT3tq4zJXcjz8/Ph3t7eQBMiiaA39Y+Pj9sqQ3IVghC5DUOkrmnyCFl9JNh+grBMQygXIWGIdLB4o2sDUR1c/W7YnqrOnyQp+LRRhYbKMZkLoZODjAEWDzVN3lFlro6Ojv7yFa+vr3eQ0tFsR3mli7yiXZ+GTIWMRiNKmpQ8dSEyRvcPkrq/TZhhH9euQigzIaaSuk6CtAkhV3nFuZAwX1CI+Jom7/jcrjsKpf1CSi8czcbiIoScCrEoqRtfSVNeoZ6HnNRtNpvvKgXOhISx3tOtx7oHHGg77YFGyVL8xkLCEKER5M+EZhQiv5RDwupFCdvXNEkVmhsJsUl26BWtuJLqCtelObUQdNsWTpZCJJdymASktHDiScdiLO8LUgnB+IJCJGnUmfk9B8emt2LdNXrLY9J+1hJiGbfXWQypbQhLM4XQra6NKYSshRgmcgjrbpk1pooHHnCs3bhjtRJiUVI3qv1ZkHZ06xl2aprIIQEd1yXVFWGI04XUHn8YQsuJJ60Qm8EPrkBwdnY2ViXHZnS7KAKxQiwncoIyhYgJuvOmsDeFkBezoamkLidytg2bvLIixHDLrp3I2TYQQj1daV4KCRPof80+SlNSXaFLC7XFwufnZ+wUHyUcVJHmLskgqLIgDzZxfpPo32uG7YZ5D8HzBEWBbj4von8zCdmaKuIKk5DKIUIYSyFILnUlqP3FAglBbVZFMRgM6G76BwZO/4IgKGT6gChFyEBGHxeERpA0MBwMh8OeKohSCIEEPkHdUgVRlqRaN3zPDakyDBHCECEMEcIQIex+rfJC+DSo9BCGCGGIEEaiEAypZYKIIUKqjghhiBDGUggmZ76p4pgYvudGKeZUcTFWHqegRzhVQZQiZDCHSq+DfMecqn9wcNC4vLws7J/p+6okQMpEFRgqCySpMkQIQ4QwRAhDhDBECEOEMEQIQ4QwRAhDhDASheCGq7pTiJqTbz09PTXUDkMP8Ea/e5EVPj3FoyrOyrPuo9GIhPiqwqzkkNlsRk8tVy5vRFkRQi8DIZcE/PnvqkDP9ce+QBT5GS1f6X/3Y1egiBhj+rJDr758AXxCLXmqoRu1AAAAAElFTkSuQmCC"
 
 /***/ }),
-/* 100 */
+/* 94 */
 /*!********************************************************************!*\
   !*** G:/HBuilder/theLianShopMiniProgram/static/img/system/car.png ***!
   \********************************************************************/
