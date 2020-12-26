@@ -72,6 +72,9 @@
   }
 
   .good-box {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+
     .radio-wrap {
       width: 30px;
 
@@ -126,7 +129,43 @@
             font-size: 11px;
           }
         }
+
+        .number {
+          .input {
+            margin: 0 10px;
+            border-radius: 31px;
+            background: #F4F4F4;
+            box-sizing: border-box;
+
+            input {
+              width: 20px;
+              padding: 0 14px;
+              text-align: center;
+              font-size: 12px;
+              color: #333;
+            }
+
+          }
+
+          .sub {
+            font-size: 13px;
+            color: #D9D9D9;
+          }
+
+          .add {
+            font-size: 13px;
+            color: #333;
+          }
+        }
       }
     }
+
+    .group-good {
+      margin-bottom: 10px;
+    }
+  }
+
+  .good-box:last-child {
+    border-bottom: 0;
   }
 }

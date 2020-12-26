@@ -94,6 +94,10 @@
   line-height: 12px;
   color: #777;
 }
+.car-wrap .good-box.data-v-51e9b630 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
 .car-wrap .good-box .radio-wrap.data-v-51e9b630 {
   width: 30px;
 }
@@ -136,5 +140,32 @@
 }
 .car-wrap .good-box .good .content .price text.data-v-51e9b630 {
   font-size: 11px;
+}
+.car-wrap .good-box .good .content .number .input.data-v-51e9b630 {
+  margin: 0 10px;
+  border-radius: 31px;
+  background: #F4F4F4;
+  box-sizing: border-box;
+}
+.car-wrap .good-box .good .content .number .input input.data-v-51e9b630 {
+  width: 20px;
+  padding: 0 14px;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+}
+.car-wrap .good-box .good .content .number .sub.data-v-51e9b630 {
+  font-size: 13px;
+  color: #D9D9D9;
+}
+.car-wrap .good-box .good .content .number .add.data-v-51e9b630 {
+  font-size: 13px;
+  color: #333;
+}
+.car-wrap .good-box .group-good.data-v-51e9b630 {
+  margin-bottom: 10px;
+}
+.car-wrap .good-box.data-v-51e9b630:last-child {
+  border-bottom: 0;
 }
 

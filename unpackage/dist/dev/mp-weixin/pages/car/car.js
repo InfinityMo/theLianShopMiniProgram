@@ -130,7 +130,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -192,22 +199,93 @@ var _default =
       car: [{
         brandImg: __webpack_require__(/*! @/static/img/brands/ysfy.png */ 60),
         brand: '悦诗风吟',
-        limit: 5,
         children: [
         {
-          select: false,
           goodImg: 'http://img.alicdn.com/bao/uploaded/i2/845001562/O1CN01i5TdJF1NPRIaSVkBF_!!845001562.jpg',
           goodTitle: '悦诗风吟洁面护肤面膜套装双重功效洗护一体',
-          goodType: '180ml',
-          goodPrice: '76',
-          num: 1 }] }] };
+          limit: 5,
+          lastChild: [
+          {
+            id: 1,
+            select: false,
+            goodType: '180ml',
+            goodPrice: '76',
+            num: 1 },
+
+          {
+            id: 2,
+            select: false,
+            goodType: '180ml',
+            goodPrice: '76',
+            num: 1 }] }] }] };
+
+
 
 
 
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    add: function add(id) {
+      var targetParent = {};
+      var target = {};
+      this.car.map(function (item) {
+        item.children.map(function (child) {
+          child.lastChild.map(function (i) {
+            if (i.id === id) {
+              targetParent = child;
+              target = i;
+            }
+          });
+        });
+      });
+      var total = targetParent.lastChild.reduce(function (prev, cur) {return prev + cur.num;}, 0);
+      if (total < targetParent.limit) {
+        target.num++;
+      } else {
+        uni.showToast({
+          title: '不可超出限购数量',
+          icon: 'none',
+          duration: 2000 });
+
+      }
+    },
+    sub: function sub(id) {
+      var targetParent = {};
+      var target = {};
+      this.car.map(function (item) {
+        item.children.map(function (child) {
+          child.lastChild.map(function (i) {
+            if (i.id === id) {
+              targetParent = child;
+              target = i;
+            }
+          });
+        });
+      });
+      this.car.filter(function (i) {
+        if (target.num > 1) {
+          target.num--;
+        }
+      });
+    },
+    radioHandle: function radioHandle(id) {
+      var targetParent = {};
+      var target = {};
+      this.car.map(function (item) {
+        item.children.map(function (child) {
+          child.lastChild.map(function (i) {
+            if (i.id === id) {
+              targetParent = child;
+              target = i;
+            }
+          });
+        });
+      });
+      target.select = !target.select;
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
