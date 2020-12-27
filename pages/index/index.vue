@@ -10,7 +10,6 @@
           <image :src="item.img"></image>
         </view>
       </swiper-item>
-
     </swiper>
     <!-- 品牌区域 -->
     <ul class="brand-wrap">

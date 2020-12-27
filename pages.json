@@ -35,6 +35,24 @@
       "style": {
         "navigationBarTitleText": "商品详情"
       }
+    },
+    {
+      "path": "pages/order/index",
+      "style": {
+        "navigationBarTitleText": "确认订单"
+      }
+    },
+    {
+      "path": "pages/myOrder/index",
+      "style": {
+        "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
+      "path": "pages/integral/index",
+      "style": {
+        "navigationBarTitleText": "积分兑换"
+      }
     }
   ],
   "globalStyle": {

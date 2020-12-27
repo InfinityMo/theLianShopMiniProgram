@@ -4,7 +4,10 @@
     "pages/car/car",
     "pages/user/user",
     "pages/brand/index",
-    "pages/good/index"
+    "pages/good/index",
+    "pages/order/index",
+    "pages/myOrder/index",
+    "pages/integral/index"
   ],
   "subPackages": [],
   "window": {
@@ -43,6 +46,5 @@
     "enable": true
   },
   "permission": {},
-  "usingComponents": {},
-  "sitemapLocation": "sitemap72.json"
+  "usingComponents": {}
 }

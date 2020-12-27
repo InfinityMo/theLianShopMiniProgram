@@ -192,10 +192,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
+      selectAllFlag: false,
       car: [{
         brandImg: __webpack_require__(/*! @/static/img/brands/ysfy.png */ 60),
         brand: '悦诗风吟',
@@ -217,6 +235,25 @@ var _default =
             select: false,
             goodType: '180ml',
             goodPrice: '76',
+            num: 1 }] }] },
+
+
+
+
+      {
+        brandImg: __webpack_require__(/*! @/static/img/brands/hw.png */ 61),
+        brand: '花王',
+        children: [
+        {
+          goodImg: '//img.alicdn.com/bao/uploaded/i1/707890732/O1CN01rx4Bfn1HHIYVkwws3_!!0-item_pic.jpg_180x180.jpg',
+          goodTitle: '日本花王妙而舒腰贴式L54片3包纸尿裤婴儿尿不湿透气',
+          limit: 5,
+          lastChild: [
+          {
+            id: 3,
+            select: false,
+            goodType: '保湿系列/10片装',
+            goodPrice: '109',
             num: 1 }] }] }] };
 
 
@@ -226,7 +263,47 @@ var _default =
 
 
   },
+  computed: {
+    total: function total() {
+      var total = 0;
+      this.car.map(function (item) {
+        item.children.map(function (child) {
+          child.lastChild.map(function (i) {
+            if (i.select) {
+              total += Number(i.goodPrice) * i.num;
+            }
+          });
+        });
+      });
+      return total;
+    } },
+
   methods: {
+    numberChange: function numberChange(id, input) {
+      var targetParent = {};
+      var target = {};
+      this.car.map(function (item) {
+        item.children.map(function (child) {
+          child.lastChild.map(function (i) {
+            if (i.id === id) {
+              targetParent = child;
+              target = i;
+            }
+          });
+        });
+      });
+      var total = targetParent.lastChild.reduce(function (prev, cur) {return prev + cur.num;}, 0);
+      if (total < targetParent.limit) {
+        target.num++;
+      } else {
+        target.num = cacheTarget.num;
+        uni.showToast({
+          title: '不可超出限购数量',
+          icon: 'none',
+          duration: 2000 });
+
+      }
+    },
     add: function add(id) {
       var targetParent = {};
       var target = {};
@@ -273,9 +350,11 @@ var _default =
     radioHandle: function radioHandle(id) {
       var targetParent = {};
       var target = {};
+      var allGoods = [];
       this.car.map(function (item) {
         item.children.map(function (child) {
           child.lastChild.map(function (i) {
+            allGoods.push(i);
             if (i.id === id) {
               targetParent = child;
               target = i;
@@ -284,6 +363,23 @@ var _default =
         });
       });
       target.select = !target.select;
+      allGoods.every(function (item) {return item.select;}) ? this.selectAllFlag = true : this.selectAllFlag = false;
+
+    },
+    selectAll: function selectAll() {var _this = this;
+      this.selectAllFlag = !this.selectAllFlag;
+      this.car.map(function (item) {
+        item.children.map(function (child) {
+          child.lastChild.map(function (i) {
+            i.select = _this.selectAllFlag;
+          });
+        });
+      });
+    },
+    toOrder: function toOrder() {
+      uni.navigateTo({
+        url: '/pages/order/index' });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
