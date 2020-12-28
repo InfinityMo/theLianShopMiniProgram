@@ -161,6 +161,7 @@ export default {
       this.popupShow = false
     },
     handleConfirm (data) {
+      this.popupShow = false
       uni.navigateTo({
         url: '/pages/order/index',
       })

@@ -323,6 +323,7 @@ __webpack_require__.r(__webpack_exports__);
       this.popupShow = false;
     },
     handleConfirm: function handleConfirm(data) {
+      this.popupShow = false;
       uni.navigateTo({
         url: '/pages/order/index' });
 
