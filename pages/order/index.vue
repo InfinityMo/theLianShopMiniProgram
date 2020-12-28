@@ -47,7 +47,8 @@
           <text class="total-num">共{{totalNum}}件</text>
         </view>
         <view>
-          <text class="calc-btn">提交订单</text>
+          <text class="calc-btn"
+                @click="submitOrder">提交订单</text>
         </view>
       </view>
     </view>
@@ -132,7 +133,19 @@ export default {
     }
   },
   methods: {
+    submitOrder () {
+      uni.showToast({
+        title: '订单提交成功',
+        icon: 'success',
+        duration: 500
+      })
+      setTimeout(() => {
+        uni.navigateTo({
+          url: '/pages/myOrder/index',
+        })
+      }, 1000)
 
+    }
   }
 }
 </script>

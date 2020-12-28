@@ -904,7 +904,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2556,13 +2556,11 @@ Dep.SharedObject.targetStack = [];
 function pushTarget (target) {
   Dep.SharedObject.targetStack.push(target);
   Dep.SharedObject.target = target;
-  Dep.target = target;
 }
 
 function popTarget () {
   Dep.SharedObject.targetStack.pop();
   Dep.SharedObject.target = Dep.SharedObject.targetStack[Dep.SharedObject.targetStack.length - 1];
-  Dep.target = Dep.SharedObject.target;
 }
 
 /*  */
@@ -7331,7 +7329,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7352,14 +7350,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7403,14 +7401,13 @@ function cloneWithData(vm) {
   }, ret);
 
   // vue-composition-api
-  var compositionApiState = vm.__composition_api_state__ || vm.__secret_vfa_state__;
-  var rawBindings = compositionApiState && compositionApiState.rawBindings;
+  var rawBindings = vm.__secret_vfa_state__ && vm.__secret_vfa_state__.rawBindings;
   if (rawBindings) {
     Object.keys(rawBindings).forEach(function (key) {
       ret[key] = vm[key];
     });
   }
-
+  
   //TODO 需要把无用数据处理掉，比如 list=>l0 则 list 需要移除，否则多传输一份数据
   Object.assign(ret, vm.$mp.data || {});
   if (
@@ -7445,7 +7442,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":""}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":""}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7882,9 +7879,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!**********************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/pages.json ***!
-  \**********************************************************************************/
+/*!*****************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/pages.json ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8883,13 +8880,13 @@ main();
 /*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, files, gitHead, homepage, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudio/uni-stat@2.0.0-29320201014001\",\"_inBundle\":false,\"_integrity\":\"sha512-XQEghsD2SDyxZqRkQ5RXl6pqnOHGlCtNCLysmOcWV437twGEvvds3OgINdyV9DEEI9G3Vt9ESrZ+biDZzA0psA==\",\"_location\":\"/@dcloudio/uni-stat\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"@dcloudio/uni-stat@next\",\"name\":\"@dcloudio/uni-stat\",\"escapedName\":\"@dcloudio%2funi-stat\",\"scope\":\"@dcloudio\",\"rawSpec\":\"next\",\"saveSpec\":null,\"fetchSpec\":\"next\"},\"_requiredBy\":[\"#USER\",\"/\",\"/@dcloudio/vue-cli-plugin-uni\"],\"_resolved\":\"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-29320201014001.tgz\",\"_shasum\":\"08b0fb1bb25f3a29f6889d192f182444d9742ac3\",\"_spec\":\"@dcloudio/uni-stat@next\",\"_where\":\"/Users/guoshengqiang/Documents/dcloud-plugins/release/uniapp-cli\",\"author\":\"\",\"bugs\":{\"url\":\"https://github.com/dcloudio/uni-app/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"\",\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"eslint\":\"^6.1.0\",\"rollup\":\"^1.19.3\",\"rollup-plugin-babel\":\"^4.3.3\",\"rollup-plugin-clear\":\"^2.0.7\",\"rollup-plugin-commonjs\":\"^10.0.2\",\"rollup-plugin-copy\":\"^3.1.0\",\"rollup-plugin-eslint\":\"^7.0.0\",\"rollup-plugin-json\":\"^4.0.0\",\"rollup-plugin-node-resolve\":\"^5.2.0\",\"rollup-plugin-replace\":\"^2.2.0\",\"rollup-plugin-uglify\":\"^6.0.2\"},\"files\":[\"dist\",\"package.json\",\"LICENSE\"],\"gitHead\":\"969deb11c7fed98826823e1d8142bb1e6318fd98\",\"homepage\":\"https://github.com/dcloudio/uni-app#readme\",\"license\":\"Apache-2.0\",\"main\":\"dist/index.js\",\"name\":\"@dcloudio/uni-stat\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/dcloudio/uni-app.git\",\"directory\":\"packages/uni-stat\"},\"scripts\":{\"build\":\"NODE_ENV=production rollup -c rollup.config.js\",\"dev\":\"NODE_ENV=development rollup -w -c rollup.config.js\"},\"version\":\"2.0.0-29320201014001\"}");
+module.exports = JSON.parse("{\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudio/uni-stat@2.0.0-28920200907001\",\"_inBundle\":false,\"_integrity\":\"sha512-AFKRFzMJDKa0IWyPtRHxUw79WJxlTFUPZMv4veCKsNubBm7Nxo1JYa4S4UubFs623mFEw9UGpJAU0uWSwuAwNg==\",\"_location\":\"/@dcloudio/uni-stat\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"@dcloudio/uni-stat@next\",\"name\":\"@dcloudio/uni-stat\",\"escapedName\":\"@dcloudio%2funi-stat\",\"scope\":\"@dcloudio\",\"rawSpec\":\"next\",\"saveSpec\":null,\"fetchSpec\":\"next\"},\"_requiredBy\":[\"#USER\",\"/\",\"/@dcloudio/vue-cli-plugin-uni\"],\"_resolved\":\"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-28920200907001.tgz\",\"_shasum\":\"529372676359ab63f23a56df4c35d638c35ccede\",\"_spec\":\"@dcloudio/uni-stat@next\",\"_where\":\"/Users/guoshengqiang/Documents/dcloud-plugins/release/uniapp-cli\",\"author\":\"\",\"bugs\":{\"url\":\"https://github.com/dcloudio/uni-app/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"\",\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"eslint\":\"^6.1.0\",\"rollup\":\"^1.19.3\",\"rollup-plugin-babel\":\"^4.3.3\",\"rollup-plugin-clear\":\"^2.0.7\",\"rollup-plugin-commonjs\":\"^10.0.2\",\"rollup-plugin-copy\":\"^3.1.0\",\"rollup-plugin-eslint\":\"^7.0.0\",\"rollup-plugin-json\":\"^4.0.0\",\"rollup-plugin-node-resolve\":\"^5.2.0\",\"rollup-plugin-replace\":\"^2.2.0\",\"rollup-plugin-uglify\":\"^6.0.2\"},\"files\":[\"dist\",\"package.json\",\"LICENSE\"],\"gitHead\":\"f3c987005a645cea90787e5f1ea2c96a92905bb2\",\"homepage\":\"https://github.com/dcloudio/uni-app#readme\",\"license\":\"Apache-2.0\",\"main\":\"dist/index.js\",\"name\":\"@dcloudio/uni-stat\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/dcloudio/uni-app.git\",\"directory\":\"packages/uni-stat\"},\"scripts\":{\"build\":\"NODE_ENV=production rollup -c rollup.config.js\",\"dev\":\"NODE_ENV=development rollup -w -c rollup.config.js\"},\"version\":\"2.0.0-28920200907001\"}");
 
 /***/ }),
 /* 7 */
-/*!**************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/pages.json?{"type":"stat"} ***!
-  \**************************************************************************************************/
+/*!*********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/pages.json?{"type":"stat"} ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8898,9 +8895,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 /* 8 */
-/*!***************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/pages.json?{"type":"style"} ***!
-  \***************************************************************************************************/
+/*!**********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/pages.json?{"type":"style"} ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9042,9 +9039,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 15 */
-/*!**************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/store/index.js ***!
-  \**************************************************************************************/
+/*!*********************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/store/index.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10203,9 +10200,9 @@ var index = {
 
 /***/ }),
 /* 17 */
-/*!*************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/common/network/request.js ***!
-  \*************************************************************************************************/
+/*!********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/common/network/request.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10332,9 +10329,9 @@ _axios.default.defaults.adapter = function (config) {
 
 /***/ }),
 /* 18 */
-/*!***************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/index.js ***!
-  \***************************************************************************************************/
+/*!**********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/index.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10342,9 +10339,9 @@ module.exports = __webpack_require__(/*! ./lib/axios */ 19);
 
 /***/ }),
 /* 19 */
-/*!*******************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/axios.js ***!
-  \*******************************************************************************************************/
+/*!**************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/axios.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10405,9 +10402,9 @@ module.exports.default = axios;
 
 /***/ }),
 /* 20 */
-/*!*******************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/utils.js ***!
-  \*******************************************************************************************************/
+/*!**************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/utils.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10765,9 +10762,9 @@ module.exports = {
 
 /***/ }),
 /* 21 */
-/*!**************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/bind.js ***!
-  \**************************************************************************************************************/
+/*!*********************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/bind.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10786,9 +10783,9 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 /* 22 */
-/*!************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/Axios.js ***!
-  \************************************************************************************************************/
+/*!*******************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/Axios.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10890,9 +10887,9 @@ module.exports = Axios;
 
 /***/ }),
 /* 23 */
-/*!******************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/buildURL.js ***!
-  \******************************************************************************************************************/
+/*!*************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/buildURL.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10970,9 +10967,9 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ }),
 /* 24 */
-/*!*************************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/InterceptorManager.js ***!
-  \*************************************************************************************************************************/
+/*!********************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/InterceptorManager.js ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11032,9 +11029,9 @@ module.exports = InterceptorManager;
 
 /***/ }),
 /* 25 */
-/*!**********************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/dispatchRequest.js ***!
-  \**********************************************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/dispatchRequest.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11121,9 +11118,9 @@ module.exports = function dispatchRequest(config) {
 
 /***/ }),
 /* 26 */
-/*!********************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/transformData.js ***!
-  \********************************************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/transformData.js ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11151,9 +11148,9 @@ module.exports = function transformData(data, headers, fns) {
 
 /***/ }),
 /* 27 */
-/*!*****************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/cancel/isCancel.js ***!
-  \*****************************************************************************************************************/
+/*!************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/cancel/isCancel.js ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11166,9 +11163,9 @@ module.exports = function isCancel(value) {
 
 /***/ }),
 /* 28 */
-/*!**********************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/defaults.js ***!
-  \**********************************************************************************************************/
+/*!*****************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/defaults.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11271,7 +11268,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 29)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../tools/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 29)))
 
 /***/ }),
 /* 29 */
@@ -11632,9 +11629,9 @@ var substr = 'ab'.substr(-1) === 'b'
 
 /***/ }),
 /* 31 */
-/*!*****************************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
-  \*****************************************************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11654,9 +11651,9 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 /***/ }),
 /* 32 */
-/*!**************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/adapters/xhr.js ***!
-  \**************************************************************************************************************/
+/*!*********************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/adapters/xhr.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11850,9 +11847,9 @@ module.exports = function xhrAdapter(config) {
 
 /***/ }),
 /* 33 */
-/*!*************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/settle.js ***!
-  \*************************************************************************************************************/
+/*!********************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/settle.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11885,9 +11882,9 @@ module.exports = function settle(resolve, reject, response) {
 
 /***/ }),
 /* 34 */
-/*!******************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/createError.js ***!
-  \******************************************************************************************************************/
+/*!*************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/createError.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11913,9 +11910,9 @@ module.exports = function createError(message, config, code, request, response) 
 
 /***/ }),
 /* 35 */
-/*!*******************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/enhanceError.js ***!
-  \*******************************************************************************************************************/
+/*!**************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/enhanceError.js ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11965,9 +11962,9 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 /***/ }),
 /* 36 */
-/*!*****************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/cookies.js ***!
-  \*****************************************************************************************************************/
+/*!************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/cookies.js ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12027,9 +12024,9 @@ function nonStandardBrowserEnv() {
 
 /***/ }),
 /* 37 */
-/*!********************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/buildFullPath.js ***!
-  \********************************************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/buildFullPath.js ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12057,9 +12054,9 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 
 /***/ }),
 /* 38 */
-/*!***********************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
-  \***********************************************************************************************************************/
+/*!******************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12081,9 +12078,9 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ }),
 /* 39 */
-/*!*********************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/combineURLs.js ***!
-  \*********************************************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/combineURLs.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12105,9 +12102,9 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 /***/ }),
 /* 40 */
-/*!**********************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/parseHeaders.js ***!
-  \**********************************************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12168,9 +12165,9 @@ module.exports = function parseHeaders(headers) {
 
 /***/ }),
 /* 41 */
-/*!*************************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-  \*************************************************************************************************************************/
+/*!********************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12245,9 +12242,9 @@ function nonStandardBrowserEnv() {
 
 /***/ }),
 /* 42 */
-/*!******************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/core/mergeConfig.js ***!
-  \******************************************************************************************************************/
+/*!*************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/core/mergeConfig.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12342,9 +12339,9 @@ module.exports = function mergeConfig(config1, config2) {
 
 /***/ }),
 /* 43 */
-/*!***************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/cancel/Cancel.js ***!
-  \***************************************************************************************************************/
+/*!**********************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/cancel/Cancel.js ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12371,9 +12368,9 @@ module.exports = Cancel;
 
 /***/ }),
 /* 44 */
-/*!********************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/cancel/CancelToken.js ***!
-  \********************************************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/cancel/CancelToken.js ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12438,9 +12435,9 @@ module.exports = CancelToken;
 
 /***/ }),
 /* 45 */
-/*!****************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/node_modules/axios/lib/helpers/spread.js ***!
-  \****************************************************************************************************************/
+/*!***********************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/node_modules/axios/lib/helpers/spread.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13156,9 +13153,9 @@ module.exports = function (str, opts) {
 
 /***/ }),
 /* 51 */
-/*!************************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/common/utils/func/loading/loading.js ***!
-  \************************************************************************************************************/
+/*!*******************************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/common/utils/func/loading/loading.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13180,9 +13177,9 @@ module.exports = function (str, opts) {
 /* 56 */,
 /* 57 */,
 /* 58 */
-/*!***************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/base/banner1.png ***!
-  \***************************************************************************************************/
+/*!**********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/base/banner1.png ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13190,9 +13187,9 @@ module.exports = "/static/img/base/banner1.png";
 
 /***/ }),
 /* 59 */
-/*!***************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/base/banner2.png ***!
-  \***************************************************************************************************/
+/*!**********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/base/banner2.png ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13200,9 +13197,9 @@ module.exports = "/static/img/base/banner2.png";
 
 /***/ }),
 /* 60 */
-/*!**************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/brands/ysfy.png ***!
-  \**************************************************************************************************/
+/*!*********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/brands/ysfy.png ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13210,9 +13207,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAAByCAYAAADQ
 
 /***/ }),
 /* 61 */
-/*!************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/brands/hw.png ***!
-  \************************************************************************************************/
+/*!*******************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/brands/hw.png ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13220,9 +13217,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAABvCAYAAABv
 
 /***/ }),
 /* 62 */
-/*!*************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/brands/mkf.png ***!
-  \*************************************************************************************************/
+/*!********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/brands/mkf.png ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13230,9 +13227,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAABvCAYAAABv
 
 /***/ }),
 /* 63 */
-/*!*************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/brands/stf.png ***!
-  \*************************************************************************************************/
+/*!********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/brands/stf.png ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13240,9 +13237,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAABvCAYAAABv
 
 /***/ }),
 /* 64 */
-/*!**************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/brands/mlgy.png ***!
-  \**************************************************************************************************/
+/*!*********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/brands/mlgy.png ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13280,9 +13277,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAABvCAYAAABv
 /* 93 */,
 /* 94 */,
 /* 95 */
-/*!**************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/system/home.png ***!
-  \**************************************************************************************************/
+/*!*********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/system/home.png ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13290,9 +13287,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABICAYAAABP
 
 /***/ }),
 /* 96 */
-/*!*************************************************************************************************!*\
-  !*** D:/codeFolder/code/HBuilder/HBuilderCode/theLianShopMiniProgram/static/img/system/car.png ***!
-  \*************************************************************************************************/
+/*!********************************************************************!*\
+  !*** G:/HBuilder/theLianShopMiniProgram/static/img/system/car.png ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

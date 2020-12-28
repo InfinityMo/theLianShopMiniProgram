@@ -53,16 +53,65 @@
         </view>
       </view>
       <view class="flex-item-center">
-        <view class="btn buy-car">加入购物车</view>
-        <view class="btn buy">立即购买</view>
+        <view class="btn buy-car"
+              @click="joinCar">加入购物车</view>
+        <view class="btn buy"
+              @click="buy">立即购买</view>
       </view>
     </view>
+    <echone-sku :show="popupShow"
+                :skuType="skuType"
+                v-if="popupShow"
+                :defaultSelectIndex="defaultSelectIndex"
+                :specificationsObj="specificationsObj"
+                @close="handleClose"
+                @confirm="handleConfirm">
+    </echone-sku>
   </view>
 </template>
 <script>
+import echoneSku from '@/components/echone-sku/echone-sku.vue'
 export default {
+  components: {
+    echoneSku,
+  },
   data () {
     return {
+      skuType: 1,
+      popupShow: false,
+      defaultSelectIndex: -1,
+      specificationsObj: {
+        id: 1,
+        limit: 5,
+        num: 1,
+        img: 'http://img.alicdn.com/bao/uploaded/i2/845001562/O1CN01i5TdJF1NPRIaSVkBF_!!845001562.jpg',
+        stopTime: '2020-12-12 18:00',
+        parameter: [{
+          type: '保湿系列/10片装',
+          stock: 200,
+          price: 188
+        }, {
+          type: '保湿系列/5片装',
+          stock: 200,
+          price: 105
+        }, {
+          type: '美白系列/10片装',
+          stock: 200,
+          price: 208
+        }, {
+          type: '美白系列/5片装',
+          stock: 200,
+          price: 115
+        }, {
+          type: '修护系列/10片装',
+          stock: 200,
+          price: 240
+        }, {
+          type: '修护系列/5片装',
+          stock: 200,
+          price: 140
+        }]
+      },
       swiperOption: {
         autoplay: true,
         interval: 2000,
@@ -99,6 +148,23 @@ export default {
 
   },
   methods: {
+
+    joinCar () {
+      this.skuType = 1
+      this.popupShow = true
+    },
+    buy () {
+      this.skuType = 2
+      this.popupShow = true
+    },
+    handleClose () {
+      this.popupShow = false
+    },
+    handleConfirm (data) {
+      uni.navigateTo({
+        url: '/pages/order/index',
+      })
+    },
     toHome () {
       uni.switchTab({
         url: '/pages/index/index',
@@ -108,7 +174,8 @@ export default {
       uni.switchTab({
         url: '/pages/car/car',
       })
-    }
+    },
+
   }
 }
 </script>

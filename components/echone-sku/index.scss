@@ -1,0 +1,159 @@
+.ell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-item-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sku-wrap {
+  padding: 20px 20px 5px 20px;
+  background-color: #fff;
+
+  .sku-top {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .main-img {
+    width: 108px;
+    height: 108px;
+    margin-right: 6px;
+    border-radius: 5px;
+  }
+
+  .price-stopTime {
+    margin-top: 63px;
+
+    .price {
+      font-size: 16px;
+      line-height: 24px;
+      color: #F04F2D;
+
+      .icon {
+        font-size: 13px;
+      }
+    }
+
+    .stop-time {
+      margin-top: 2px;
+      font-size: 11px;
+      color: #777
+    }
+  }
+
+  .chose-params {
+    margin: 30px 0 10px 0;
+    font-size: 15px;
+    line-height: 21px;
+    color: #333
+  }
+
+  .parameter {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      padding: 5px 15px;
+      margin: 0 15px 15px 0;
+      font-size: 13px;
+      line-height: 19px;
+      color: #333;
+      background: #F4F4F4;
+      border: 1px solid #F4F4F4;
+      border-radius: 20px;
+    }
+
+    .select-li {
+      color: #F04F2D;
+      background: rgba(239, 78, 44, 0.1);
+      border: 1px solid #EF4E2C;
+    }
+  }
+
+  .select-num {
+    padding: 15px 0 20px 0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+
+    .limit {
+      h6 {
+        margin-right: 5px;
+        font-size: 15px;
+        line-height: 21px;
+        color: #333
+      }
+
+      text {
+        font-size: 11px;
+        color: #777
+      }
+    }
+
+    .number {
+      .input {
+        margin: 0 10px;
+        border-radius: 31px;
+        background: #F4F4F4;
+        box-sizing: border-box;
+
+        input {
+          width: 20px;
+          padding: 0 14px;
+          text-align: center;
+          font-size: 12px;
+          color: #333;
+        }
+
+      }
+
+      .sub {
+        font-size: 13px;
+        color: #D9D9D9;
+
+        image {
+          width: 11.5px;
+          height: 1.5px;
+        }
+      }
+
+      .add {
+        font-size: 13px;
+        color: #333;
+
+        image {
+          width: 11.5px;
+          height: 11.5px;
+        }
+      }
+    }
+  }
+
+  .okBtn {
+    height: 40px;
+    line-height: 40px;
+    font-size: 13px;
+    color: #333;
+    text-align: center;
+    background: #F4F4F4;
+    border-radius: 24px;
+  }
+
+  .okBtn-handle {
+    color: #FFFFFF;
+    background: linear-gradient(270deg, #D82810 0%, #F04F2D 100%);
+  }
+}

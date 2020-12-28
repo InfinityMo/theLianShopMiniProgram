@@ -35,18 +35,18 @@
                   <view class="flex-between-center">
                     <text class="price"><text>￥</text>{{last.goodPrice}}</text>
                     <view class="number flex-item-center">
-                      <view class="sub"
+                      <view class="sub flex-item-center"
                             @tap.stop="sub(last.id)">
-                        <text class="iconfont icon icon-jianhao">-</text>
+                        <image src="@/static/img/base/sub.png"></image>
                       </view>
                       <view class="input">
                         <input type="number"
                                @input.stop="numberChange(last.id, $event)"
                                v-model="last.num" />
                       </view>
-                      <view class="add"
+                      <view class="add flex-item-center"
                             @tap.stop="add(last.id)">
-                        <text class="iconfont icon iconjia1">+</text>
+                        <image src="@/static/img/base/add.png"></image>
                       </view>
                     </view>
                   </view>
