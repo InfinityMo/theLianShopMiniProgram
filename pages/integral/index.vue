@@ -22,7 +22,8 @@
               <p class="grade">需{{item.grade}}积分</p>
             </view>
           </view>
-          <text class="exchange">兑换</text>
+          <text class="exchange"
+                @click="exchangeHandle">兑换</text>
         </li>
       </ul>
     </view>
@@ -92,7 +93,23 @@ export default {
     change (e) {
       this.count = e
       this.btnnum = e
-
+    },
+    exchangeHandle () {
+      uni.showModal({
+        title: '确定花费30积分兑换“增加3次考勤免签”奖励？',
+        content: '兑换后您本月的考勤免签次数将会增加3次',
+        success: function (res) {
+          if (res.confirm) {
+            uni.showToast({
+              title: '兑换成功',
+              icon: 'success',
+              duration: 2000
+            })
+          } else if (res.cancel) {
+            return false
+          }
+        }
+      });
     }
   }
 }

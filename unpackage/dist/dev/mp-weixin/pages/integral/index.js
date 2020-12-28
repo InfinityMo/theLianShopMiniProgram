@@ -130,7 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
 //
 //
 //
@@ -224,8 +225,25 @@ var _default =
     change: function change(e) {
       this.count = e;
       this.btnnum = e;
+    },
+    exchangeHandle: function exchangeHandle() {
+      uni.showModal({
+        title: '确定花费30积分兑换“增加3次考勤免签”奖励？',
+        content: '兑换后您本月的考勤免签次数将会增加3次',
+        success: function success(res) {
+          if (res.confirm) {
+            uni.showToast({
+              title: '兑换成功',
+              icon: 'success',
+              duration: 2000 });
+
+          } else if (res.cancel) {
+            return false;
+          }
+        } });
 
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
