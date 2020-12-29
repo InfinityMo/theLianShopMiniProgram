@@ -26,7 +26,7 @@
 /* 文章场景相关 */
 .user-wrap.data-v-80842834 {
   position: relative;
-  background: #E5E5E5;
+  background: #fff;
 }
 .flex.data-v-80842834 {
   display: -webkit-box;

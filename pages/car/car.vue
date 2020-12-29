@@ -70,6 +70,7 @@
         <view>
           <text class="delete">删除</text>
           <text class="calc-btn"
+                :class="{'calc-btn-handle':isSelect}"
                 @click="toOrder">结算</text>
         </view>
       </view>
@@ -81,6 +82,7 @@
 export default {
   data () {
     return {
+      isSelect: false,
       selectAllFlag: false,
       car: [{
         brandImg: require('@/static/img/brands/ysfy.png'),
@@ -94,14 +96,14 @@ export default {
               {
                 id: 1,
                 select: false,
-                goodType: '180ml',
-                goodPrice: '76',
+                goodType: '220ml',
+                goodPrice: '116',
                 num: 1
               },
               {
                 id: 2,
                 select: false,
-                goodType: '180ml',
+                goodType: '130ml',
                 goodPrice: '76',
                 num: 1
               }
@@ -127,8 +129,7 @@ export default {
             ]
           }
         ]
-      },
-      ]
+      }]
     }
   },
   computed: {
@@ -231,23 +232,51 @@ export default {
         })
       })
       target.select = !target.select
+      allGoods.some(item => item.select) ? this.isSelect = true : this.isSelect = false
       allGoods.every(item => item.select) ? this.selectAllFlag = true : this.selectAllFlag = false
 
     },
     selectAll () {
       this.selectAllFlag = !this.selectAllFlag
+      let allGoods = []
       this.car.map(item => {
         item.children.map(child => {
           child.lastChild.map(i => {
+            allGoods.push(i)
             i.select = this.selectAllFlag
           })
         })
       })
+      allGoods.some(item => item.select) ? this.isSelect = true : this.isSelect = false
     },
     toOrder () {
-      uni.navigateTo({
-        url: '/pages/order/index',
-      })
+      if (this.isSelect) {
+        let copyCar = JSON.parse(JSON.stringify(this.car))
+        copyCar.map((item, index1) => {
+          item.children.map((child, index2) => {
+            if (child.lastChild.every(i => !i.select)) {
+              copyCar.splice(index1, 1)
+            } else {
+              child.lastChild.map((i, index3) => {
+                if (!i.select) {
+                  copyCar[index1].children[index2].lastChild.splice(index3, 1)
+                }
+              })
+            }
+
+          })
+        })
+        copyCar.map((item, index1) => {
+          item.children.map((child, index2) => {
+            if (child.lastChild.length <= 0) {
+              copyCar.splice(index1, 1)
+            }
+          })
+        })
+        uni.navigateTo({
+          url: '/pages/order/index?orderData=' + encodeURIComponent(JSON.stringify(copyCar))
+        })
+      }
     }
   }
 }

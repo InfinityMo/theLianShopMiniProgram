@@ -43,12 +43,12 @@
       <view class="flex-item-center">
         <view class="home-car home"
               @click="toHome">
-          <img src='../../static/img/system/home.png'>
+          <img src='../../static/img/base/good-home.png'>
           <p>首页</p>
         </view>
         <view class="home-car"
               @click="toCar">
-          <img src='../../static/img/system/car.png'>
+          <img src='../../static/img/base/good-car.png'>
           <p>购物车</p>
         </view>
       </view>
@@ -84,6 +84,9 @@ export default {
         id: 1,
         limit: 5,
         num: 1,
+        brand: '悦诗风吟',
+        goodTitle: '悦诗风吟洁面护肤面膜套装双重功效洗护一体',
+        brandImg: require('@/static/img/brands/ysfy.png'),
         img: 'http://img.alicdn.com/bao/uploaded/i2/845001562/O1CN01i5TdJF1NPRIaSVkBF_!!845001562.jpg',
         stopTime: '2020-12-12 18:00',
         parameter: [{
@@ -126,7 +129,7 @@ export default {
         img: 'http://img.alicdn.com/bao/uploaded/i2/845001562/O1CN01i5TdJF1NPRIaSVkBF_!!845001562.jpg',
         title: '悦诗风吟洁面护肤面膜套装双重功效洗护一体共5瓶＋5片，送小样',
         stopTime: '2020-01-03 18:00',
-        price: '276-423',
+        price: '140-240',
         limit: 5
       },
       infoDateil: {
@@ -163,7 +166,7 @@ export default {
     handleConfirm (data) {
       this.popupShow = false
       uni.navigateTo({
-        url: '/pages/order/index',
+        url: '/pages/order/index?orderData=' + encodeURIComponent(JSON.stringify(data))
       })
     },
     toHome () {

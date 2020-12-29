@@ -1,6 +1,5 @@
 <template>
-  <scroll-view scroll-top=0
-               scroll-y="true">
+  <scroll-view scroll-y="true">
     <view class="container">
       <swiper class="swiper"
               :autoplay="swiperOption.autoplay"
@@ -129,6 +128,9 @@ export default {
 // @import '@/common/style/brands.scss'
 // @import "~@/common/styles/brands.css"
 // @import  './index.scss'
+page {
+  background-color: #e5e5e5;
+}
 .container {
   padding-bottom: 10px;
   background-color: #e5e5e5;
@@ -151,7 +153,7 @@ export default {
   li {
     width: 20%;
     height: 55px;
-    padding: 5px;
+    padding: 10px 5px;
     line-height: 1;
     text-align: center;
     img {

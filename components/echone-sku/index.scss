@@ -121,8 +121,10 @@
       }
 
       .sub {
-        font-size: 13px;
-        color: #D9D9D9;
+        display: flex;
+        align-items: center;
+        width: 12px;
+        height: 20px;
 
         image {
           width: 11.5px;
@@ -131,8 +133,10 @@
       }
 
       .add {
-        font-size: 13px;
-        color: #333;
+        display: flex;
+        align-items: center;
+        width: 12px;
+        height: 20px;
 
         image {
           width: 11.5px;

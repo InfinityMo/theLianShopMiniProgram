@@ -19,12 +19,8 @@ export default {
   font-family: uniicons;
   src: url("/static/uni.ttf");
 }
-page {
-  background-color: #f7f7f7;
-}
+/* #endif */
 page {
   background-color: #e5e5e5;
 }
-
-/* #endif */
 </style>

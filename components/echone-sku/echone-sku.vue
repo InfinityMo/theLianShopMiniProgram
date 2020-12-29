@@ -125,7 +125,24 @@ export default {
           this.$emit('close')
         }, 1500)
       } else {
-        this.$emit('confirm', {})
+        let orderData = [{
+          brandImg: this.specifications.brandImg,
+          brand: this.specifications.brand,
+          children: [
+            {
+              goodImg: this.specifications.img,
+              goodTitle: this.specifications.goodTitle,
+              limit: this.specifications.limit,
+              lastChild: [{
+                id: this.specifications.id,
+                goodType: this.specifications.parameter[this.defaultLiSelect].type,
+                goodPrice: this.specifications.parameter[this.defaultLiSelect].price,
+                num: this.specifications.num
+              }]
+            }
+          ]
+        }]
+        this.$emit('confirm', orderData)
       }
     }
   }

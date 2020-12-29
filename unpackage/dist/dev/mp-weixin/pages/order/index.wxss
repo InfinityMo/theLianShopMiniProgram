@@ -29,6 +29,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+page.data-v-0ca91b30 {
+  background-color: #e5e5e5;
+}
 .flex.data-v-0ca91b30 {
   display: -webkit-box;
   display: -webkit-flex;
