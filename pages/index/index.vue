@@ -1,54 +1,56 @@
 <template>
-  <view class="container">
-    <swiper class="swiper"
-            :autoplay="swiperOption.autoplay"
-            :interval="swiperOption.interval"
-            :duration="swiperOption.duration">
-      <swiper-item v-for="(item,index) in swiperData"
-                   :key="index">
-        <view class="swiper-item uni-bg-red">
-          <image :src="item.img"></image>
-        </view>
-      </swiper-item>
-    </swiper>
-    <!-- 品牌区域 -->
-    <ul class="brand-wrap">
-      <li v-for="(item,index) in brand"
-          :key="index"
-          @click="toBrand(item.name)">
-        <img :src="item.img">
-        <p>{{item.name}}</p>
-      </li>
-    </ul>
-    <view class="sell-tip">
-      <text class="title">本次售卖</text>
-      <label>本次共售卖12件商品，欲购从速</label>
-    </view>
-    <ul class="good-wrap">
-      <li v-for="(good,index) in goods"
-          :key="index"
-          @click="toGood(index)">
-        <view class="img-wrap"><img :src="good.img"></view>
-        <view class="info">
-          <h5 class="ell">{{good.title}}</h5>
-          <p><label>停售时间：</label><text>{{good.stopTime}}</text></p>
-          <view class="price-limit">
-            <text class="price">￥{{good.price}}</text>
-            <text class="limit">限购{{good.limit}}件</text>
+  <scroll-view scroll-top=0
+               scroll-y="true">
+    <view class="container">
+      <swiper class="swiper"
+              :autoplay="swiperOption.autoplay"
+              :interval="swiperOption.interval"
+              :duration="swiperOption.duration">
+        <swiper-item v-for="(item,index) in swiperData"
+                     :key="index">
+          <view class="swiper-item uni-bg-red">
+            <image :src="item.img"></image>
           </view>
-        </view>
-      </li>
-    </ul>
-  </view>
+        </swiper-item>
+      </swiper>
+      <!-- 品牌区域 -->
+      <ul class="brand-wrap">
+        <li v-for="(item,index) in brand"
+            :key="index"
+            @click="toBrand(item.name)">
+          <img :src="item.img">
+          <p>{{item.name}}</p>
+        </li>
+      </ul>
+      <view class="sell-tip">
+        <text class="title">本次售卖</text>
+        <label>本次共售卖12件商品，欲购从速</label>
+      </view>
+      <ul class="good-wrap">
+        <li v-for="(good,index) in goods"
+            :key="index"
+            @click="toGood(index)">
+          <view class="img-wrap"><img :src="good.img"></view>
+          <view class="info">
+            <h5 class="ell">{{good.title}}</h5>
+            <p><label>停售时间：</label><text>{{good.stopTime}}</text></p>
+            <view class="price-limit">
+              <text class="price">￥{{good.price}}</text>
+              <text class="limit">限购{{good.limit}}件</text>
+            </view>
+          </view>
+        </li>
+      </ul>
+    </view>
+  </scroll-view>
+
 </template>
 <script>
 export default {
   data () {
     return {
       swiperData: [{
-        img: require('@/static/img/base/banner1.png')
-      }, {
-        img: require('@/static/img/base/banner2.png')
+        img: require('@/static/img/base/banner.png')
       }],
       brand: [{
         name: '悦诗风吟',

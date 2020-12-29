@@ -24,16 +24,24 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.scroll.data-v-8289f93e {
+  height: 100vh;
+}
 .ell.data-v-8289f93e {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.clearfix.data-v-8289f93e::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
 .brand-wrap.data-v-8289f93e {
   padding: 10px 12px 3px 12px;
   background-color: #e5e5e5;
 }
-.brand-wrap ._ul.data-v-8289f93e {
+.brand-wrap .scroll.data-v-8289f93e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -46,7 +54,7 @@
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.brand-wrap ._ul ._li.data-v-8289f93e {
+.brand-wrap .scroll .scroll-item.data-v-8289f93e {
   width: 49%;
   padding: 30px 12px 10px 12px;
   margin-bottom: 7px;
@@ -54,24 +62,24 @@
   border-radius: 5px;
   box-sizing: border-box;
 }
-.brand-wrap ._ul ._li ._img.data-v-8289f93e {
+.brand-wrap .scroll .scroll-item ._img.data-v-8289f93e {
   width: 147px;
   height: 120px;
   margin-bottom: 25px;
 }
-.brand-wrap ._ul ._li ._h5.data-v-8289f93e {
+.brand-wrap .scroll .scroll-item ._h5.data-v-8289f93e {
   margin-bottom: 6px;
   color: #333;
   line-height: 13px;
   font-size: 13px;
 }
-.brand-wrap ._ul ._li ._p.data-v-8289f93e {
+.brand-wrap .scroll .scroll-item ._p.data-v-8289f93e {
   margin-bottom: 12px;
   font-size: 11px;
   line-height: 11px;
   color: #777;
 }
-.brand-wrap ._ul ._li .price-limit.data-v-8289f93e {
+.brand-wrap .scroll .scroll-item .price-limit.data-v-8289f93e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -82,12 +90,12 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.brand-wrap ._ul ._li .price-limit .price.data-v-8289f93e {
+.brand-wrap .scroll .scroll-item .price-limit .price.data-v-8289f93e {
   font-weight: 500;
   font-size: 13px;
   color: #f04f2d;
 }
-.brand-wrap ._ul ._li .price-limit .limit.data-v-8289f93e {
+.brand-wrap .scroll .scroll-item .price-limit .limit.data-v-8289f93e {
   font-size: 11px;
   color: #777;
 }
